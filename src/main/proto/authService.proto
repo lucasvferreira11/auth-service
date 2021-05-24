@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.github.lucasvferreira11.grpc";
+option java_outer_classname = "AuthService";
+option objc_class_prefix = "HLW";
+
+package com.github.lucasvferreira11.grpc;
+
+service AuthGrpcServerService {
+  rpc send (AuthGrpcServerCredentials) returns (AuthGrpcServerReply) {}
+}
+
+message AuthGrpcServerCredentials {
+  string id = 1;
+  string secret = 2;
+}
+
+message AuthGrpcServerReply {
+  bool valid = 1;
+  string token = 2;
+}
